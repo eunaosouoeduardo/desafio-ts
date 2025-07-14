@@ -11,6 +11,7 @@ from opentelemetry.instrumentation.redis import RedisInstrumentor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from opentelemetry.sdk.resources import Resource, SERVICE_NAME
 from src.core.config import settings
+from src.core.database import engine
 
 def setup_tracing(service_name: str):
     resource = Resource(attributes={
@@ -50,7 +51,7 @@ def setup_metrics(service_name: str):
 
 def instrument_fastapi(app):
     FastAPIInstrumentor.instrument_app(app)
-    SQLAlchemyInstrumentor().instrument()
+    SQLAlchemyInstrumentor().instrument(engine=engine)
     RedisInstrumentor().instrument()
 
 def instrument_celery():

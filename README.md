@@ -17,8 +17,7 @@ O projeto foi construído utilizando Python na versão 3.9 para a construção d
 - Celery: Realiza o calculo dos consolidado de forma distribuida com suporte a retry e escalabilidade horizontal.
 
 #### Monitoramento:
-- OpenTelemetry:
-
+- OpenTelemetry: Pela sua flexibilidade de poder ser consumido por diferentes backends de observabilidade. (Caso já possuísse uma infraestrutura ELK, optaria por utilizar o ElasticAPM)
 
 ## Desenho da Aplicação/Arquitetura
 
