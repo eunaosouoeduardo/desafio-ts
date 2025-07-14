@@ -48,11 +48,7 @@ def setup_metrics(service_name: str):
 
     return metrics.get_meter(service_name)
 
-
 def instrument_fastapi(app):
     FastAPIInstrumentor.instrument_app(app)
     SQLAlchemyInstrumentor().instrument(engine=engine)
     RedisInstrumentor().instrument()
-
-def instrument_celery():
-    CeleryInstrumentor().instrument()
