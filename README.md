@@ -157,7 +157,7 @@ curl --location 'http://localhost:5000/lancamentos' \
 --header 'Content-Type: application/json' \
 --data '{
     "valor": 150,
-    "data": "2025-07-19",
+    "data": "2025-10-15",
     "descricao": "Venda de produto X",
     "tipo": "CREDITO"
 }'
@@ -177,7 +177,7 @@ Content-Type: application/json
 ```
 *Response:*
 ```http
-HTTP/1.1 201 Created
+HTTP/1.1 200 Created
 {
   "id": 42,
   "valor": 150.50,
@@ -190,13 +190,12 @@ HTTP/1.1 201 Created
 
 
 #### 2. Obter consolidado diario
-POST /lancamentos  
-Cria um novo lançamento financeiro (débito/crédito).
+GET /consolidado/{data}  
+Consulta um consoldado por data.
 
 ```curl
 curl --location 'http://localhost:5001/consolidado/2025-10-15' \
---header 'Content-Type: application/json' \
---data ''
+--header 'Content-Type: application/json'
 ```
 
 *Request:*
